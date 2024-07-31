@@ -199,6 +199,15 @@ inverteB lista = inverteAux lista []  -- Chama a função auxiliar com a lista o
 --------------------------------------------------------------
 --------------------------------------------------------------
 --------------------------------------------------------------
+-- Função principal para testes
+main :: IO ()
+main = do
+    putStrLn "Teste de Funções Haskell"
+    putStrLn ("Palíndromo 'arara': " ++ show (palindromo "arara"))
+    putStrLn ("Verifica Triângulo 3, 4, 5: " ++ show (verificaTriangulo 3 4 5))
+    putStrLn ("Sinal de -10: " ++ show (sinal (-10)))
+    putStrLn ("Menor entre 1, 2, 3: " ++ show (menorTres 1 2 3))
+    putStrLn ("2^3: " ++ show (potencia 2 3))
 
 
 
