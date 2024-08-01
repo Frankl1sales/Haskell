@@ -199,6 +199,69 @@ inverteB lista = inverteAux lista []  -- Chama a função auxiliar com a lista o
 --------------------------------------------------------------
 --------------------------------------------------------------
 --------------------------------------------------------------
+-- Exemplo dos Slides
+ins :: Int -> [Int] -> [Int]
+ins a [] = [a]
+ins a (x:xs)
+    | a <= x = a:x:xs
+    | otherwise = x: ins a xs
+
+-- (1)
+pegaPosi :: Int -> [Int] -> Int
+pegaPosi _ [] = error "Índice fora dos limites da lista" -- Caso de lista vazia
+pegaPosi 0 (x:_) = x -- Caso base: índice 0, retorna o primeiro elemento
+pegaPosi n (_:xs) = pegaPosi (n-1) xs -- Caso recursivo: diminui o índice e continua na lista
+
+-- (2)
+--pega 3 [1,2,3,4,5]
+-- [1,2,3]
+pega :: Int -> [Int] -> [Int]
+pega _ [] = [] -- Caso de lista vazia: retorna lista vazia
+pega 0 _ = [] -- Caso base: n é 0, retorna lista vazia ou a lista mesmo
+pega n (x:xs) = x : pega (n-1) xs -- Caso recursivo: pega o primeiro elemento e chama recursivamente
+
+-- (3)
+retira :: Int -> [Int] -> [Int]
+retira _ [] = [] -- Caso de lista vazia: retorna lista vazia
+retira 0 xs = xs -- Caso base: n é 0, retorna a lista original
+retira n (_:xs) = retira (n-1) xs -- Caso recursivo: ignora o primeiro elemento e chama recursivamente
+
+-- (4)
+-- Implementar a função mediaLista que a ula a média dos elementos de uma lista
+-- Função para calcular a soma dos elementos da lista
+--Está na linha 109
+somaListaFloat :: [Float] -> Float
+somaListaFloat [] = 0
+somaListaFloat (x:xs) = x + somaListaFloat(xs)
+
+-- Função para contar o número de elementos na lista
+contaElementos :: [Float] -> Int
+contaElementos [] = 0
+contaElementos (_:xs) = 1 + contaElementos(xs)
+
+-- Função para calcular a média dos elementos da lista
+mediaLista :: [Float] -> Float
+mediaLista [] = error "Não há elementos na lista" -- Caso de lista vazia
+mediaLista xs = (somaListaFloat xs) / fromIntegral (contaElementos xs)
+-- `div` retorna o inteiro da divisão
+
+-- (5)
+-- pegaMaiores 3 [10,2,3,4,5]
+-- [10,4,5]
+pegaMaiores :: Int -> [Int] -> [Int]
+pegaMaiores _ [] = [] -- Caso base: lista vazia
+pegaMaiores a (x:xs)
+    | x > a     = x : pegaMaiores a xs -- Se o elemento é maior que 'a', inclui na lista resultante
+    | otherwise = pegaMaiores a xs     -- Caso contrário, ignora o elemento
+
+-- (6)
+--Implementar a função ontaMaiores
+-- contaMaiores 3 [10,2,3,4,5,16]
+contaMaiores :: Int -> [Int] -> Int
+contaMaiores _ [] = 0 
+contaMaiores a (x:xs)
+    | x > a 
+    |
 -- Função principal para testes
 main :: IO ()
 main = do
