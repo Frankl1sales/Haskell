@@ -4,7 +4,7 @@
 
 Este guia fornece instruções simples sobre como rodar um script Haskell no terminal no Ubuntu.
 
-## Pré-requisitos
+## Pré-requisito
 
 Antes de começar, você precisa ter o GHC (Glasgow Haskell Compiler) instalado no seu sistema. Você pode instalar o GHC usando o seguinte comando:
 
